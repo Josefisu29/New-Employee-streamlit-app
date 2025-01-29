@@ -1,8 +1,4 @@
 import streamlit as st
-
-# Apply custom styles from style.css file
-st.markdown('<style>{}</style>'.format(open('style.css').read()), unsafe_allow_html=True)
-
 # Function to toggle the visibility of the pay input based on employee type
 def toggle_pay_input(employee_type):
     return bool(employee_type)
