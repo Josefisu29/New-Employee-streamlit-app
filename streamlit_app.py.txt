@@ -1,17 +1,13 @@
 import streamlit as st
 
-
+# Apply custom styles from style.css file
 st.markdown('<style>{}</style>'.format(open('style.css').read()), unsafe_allow_html=True)
 
-
-
-
+# Function to toggle the visibility of the pay input based on employee type
 def toggle_pay_input(employee_type):
-    if employee_type:
-        return True
-    return False
+    return bool(employee_type)
 
-
+# Function to create employee information
 def create_employee():
     # Input fields for Employee Information
     firstname = st.text_input("First Name")
@@ -25,7 +21,7 @@ def create_employee():
     else:
         pay = None
 
-
+    # Address input fields
     street_number = st.number_input("Street Number", min_value=1)
     street_name = st.text_input("Street Name")
     state_code = st.text_input("State Code")
@@ -45,10 +41,11 @@ def create_employee():
         else:
             st.error("Please fill in all fields.")
 
-
+# Main function to run the app
 def main():
     st.title("Employee Information")
     create_employee()
 
+# Run the app if this script is executed directly
 if __name__ == "__main__":
     main()
